@@ -7,7 +7,7 @@ RUN apt-get update \
 && rm -rf /var/lib/apt/lists/*
 
 
-ENV CEREBRO_VERSION 0.7.2
+ENV CEREBRO_VERSION 0.7.3
 RUN cd /opt/ \
     && curl -L -o cerebro-${CEREBRO_VERSION}.tgz https://github.com/lmenezes/cerebro/releases/download/v${CEREBRO_VERSION}/cerebro-${CEREBRO_VERSION}.tgz \
     && tar zxvf cerebro-${CEREBRO_VERSION}.tgz \
