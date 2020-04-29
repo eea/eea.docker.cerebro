@@ -5,14 +5,29 @@ Cerebro project: https://github.com/lmenezes/cerebro
 
 It connects to ES client that has basic authorization enabled.
 
+## Environment variables
+
+### Mandatory
+
+* `CEREBRO_SECRET` - cerebro secret, used for cookies, run `pwgen  -y 64  | head -n 1` for production
+* `CEREBRO_PORT` - cerebro port
+* `BASIC_AUTH_USER` - cerebro user
+* `BASIC_AUTH_PWD` - cerebro password
+* `ELASTIC_URL` - elasticsearch url ( for example `http://es-client:9200` )
+
+### Non-mandatory
+
+* `ELASTIC_USER` - elasticsearch user
+* `ELASTIC_PASSWORD` - elasticsearch password
+* `JAVA_OPTS` - java options
+
 ## Usage
 To run the image:
-`docker run -d -p 9000:9000 --name cerebro -e CER_ES_URL=http://es-client:9200  -e CER_ES_USER=rwuser  -e CER_ES_PASSWORD=rwpassword eeacms/cerebro`
+`docker run -d -p 9000:9000 --name cerebro -e CEREBRO_SECRET=secret -e BASIC_AUTH_USER=admin -e BASIC_AUTH_PWD=admin -e ELASTIC_URL=http://es-client:9200 -e CEREBRO_PORT=9000 -e ELASTIC_USER=rwuser  -e ELASTIC_PASSWORD=rwpassword eeacms/cerebro`
 
 Then you can access the web console in this URL: http://[Docker_Host]:9000 and connect to Elasticsearch cluster.
 
 You can mount volumes for the configuration folder and / the logs, for example:
 
-`docker run -d -p 9000:9000 --name cerebro -v /mount_folder/logs:/opt/cerebro/logs  -e CER_ES_URL=http://es-client:9200  -e CER_ES_USER=rwuser  -e CER_ES_PASSWORD=rwpassword   eeacms/cerebro`
-
+`docker run -d -p 9000:9000 --name cerebro -v /mount_folder/logs:/opt/cerebro/logs -e CEREBRO_SECRET=secret -e BASIC_AUTH_USER=admin -e BASIC_AUTH_PWD=admin -e ELASTIC_URL=http://es-client:9200 -e CEREBRO_PORT=9000 -e ELASTIC_USER=rwuser  -e ELASTIC_PASSWORD=rwpassword eeacms/cerebro`
 
