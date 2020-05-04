@@ -7,16 +7,11 @@ It connects to ES client that has basic authorization enabled.
 
 ## Environment variables
 
-### Mandatory
-
-* `CEREBRO_SECRET` - cerebro secret, used for cookies, run `pwgen  -y 64  | head -n 1` for production
-* `CEREBRO_PORT` - cerebro port
+* `CEREBRO_SECRET` - cerebro secret, used for cookies, for example you can run `pwgen  -y 64  | head -n 1` for production
+* `CEREBRO_PORT` - cerebro port, default 9000
 * `BASIC_AUTH_USER` - cerebro user
 * `BASIC_AUTH_PWD` - cerebro password
 * `ELASTIC_URL` - elasticsearch url ( for example `http://es-client:9200` )
-
-### Non-mandatory
-
 * `ELASTIC_USER` - elasticsearch user
 * `ELASTIC_PASSWORD` - elasticsearch password
 * `JAVA_OPTS` - java options
