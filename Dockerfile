@@ -1,4 +1,4 @@
-FROM lmenezes/cerebro:0.9.2
+FROM lmenezes/cerebro:0.9.4
 
 COPY application.conf /opt/cerebro/conf/application.conf
 COPY docker-entrypoint.sh /docker-entrypoint.sh
